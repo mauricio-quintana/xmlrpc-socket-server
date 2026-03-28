@@ -14,7 +14,6 @@ class Client:
 
 
     def __getattr__(self, name):
-        #Intercepta el llamado a un método remoto no definido localmente.
         def envio(*args):
             def construir_solicitud(host, method_name, args):
                 params_xml = ""
@@ -25,7 +24,7 @@ class Client:
                         params_xml += f"<param><value><string>{arg}</string></value></param>"
                     else:
                         raise Exception()
-#NOOOO MODIFICAR IDENTACION
+
                 body = f"""<?xml version="1.0"?> 
 <methodCall>
     <methodName>{method_name}</methodName>
@@ -163,7 +162,7 @@ class Client:
             body = body.decode()
 
 
-            #chequeamos que el xml contenga <?xml version="1.0"?>
+            
             if not body.lstrip().startswith('<?xml version="1.0"?>'):
                 self.cliente.close()
                 print("Error al parsear el XML, se cierra la conexion")

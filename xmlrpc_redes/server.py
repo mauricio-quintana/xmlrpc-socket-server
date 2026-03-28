@@ -69,7 +69,7 @@ class Server:
         
         def construir_fault(fault_code,fault_string):
             
-#NOOOO MODIFICAR IDENTACION
+
             body = f"""<?xml version="1.0"?>
 <methodResponse>
     <fault>
@@ -95,7 +95,7 @@ class Server:
             else:
                 mensaje =  f"<param><value><string>{resultado}</string></value></param>" 
 
-#NOOOO MODIFICAR IDENTACION
+
             body = f"""<?xml version="1.0"?>
 <methodResponse>
     <params>
@@ -176,7 +176,7 @@ class Server:
                 try:
                     largo = line.split(":")[1].strip()
                     content_length = int(largo)
-                except ValueError:  #IndexError es porque no hay nada y ValueError es porque no se puede convertir a entero
+                except ValueError:  
                     respuesta = construir_bad_request("")
                     send_aux(respuesta,conn)
                     conn.close()
@@ -192,7 +192,7 @@ class Server:
                     conn.close()
                     return
 
-        #print(content_length)
+        
         body = resto.encode()
         while len(body) < content_length:
             try:

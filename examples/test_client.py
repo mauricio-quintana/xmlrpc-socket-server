@@ -1,7 +1,5 @@
 from xmlrpc_redes.client import connect
 
-# Nosotros tendriamos que hacer casos de prueba
-# para probar que puede no estar funcionando
 def test_client():
     print("============================")
     print("Iniciando Pruebas Servidor 1")
@@ -71,7 +69,7 @@ def test_client():
     print('Test 11 completado')
 
     conn = connect(host,puerto)
-    #mensaje = "a"*20000        #Se probo y andubo
+    #mensaje = "a"*20000        
     mensaje = "aeri"
     retorno = conn.echo(mensaje)
     print(retorno)
@@ -122,7 +120,7 @@ def test_client():
     print('Test 7 completado')
 
 
-#Este test se corrio con las lineas comentadas y funcionaba
+
 
     conn1 = connect(host,puerto)
     #conn2 = connect(host,puerto)
